@@ -43,7 +43,7 @@ for j in prize_list:
     prize_list_adjust.append(j.strip())
 question_appeared = []
 position = 0
-for i in range(15):
+for f in range(15):
     question_num =("Cau hoi thu {}:").format(position + 1)
     print(question_num)
     question_position = random.randint(1,18)
