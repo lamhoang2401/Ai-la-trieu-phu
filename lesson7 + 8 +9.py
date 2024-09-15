@@ -43,6 +43,7 @@ for j in prize_list:
     prize_list_adjust.append(j.strip())
 question_appeared = []
 position = 0
+time.sleep(2)
 for f in range(15):
     question_num =("Cau hoi thu {}:").format(position + 1)
     print(question_num)
@@ -50,29 +51,30 @@ for f in range(15):
     
     while question_position in question_appeared:
         question_position = random.randint(1,18)
-        
+    position += 1
     print(question_list[question_position])
     user_answer = input("Type your answer: ")
-    if user_answer.lower() == (answers_list_adjust[position]).lower():
+    if user_answer.lower() == (answers_list_adjust[question_position]).lower():
         print("Correct!")
-    print("Giải thưởng lúc này của bạn:", prize_list_adjust[position])
-    if position == 14:
-        print("Chúc mừng bạn đã hoàn thành trò chơi với giải thưởng là {} đồng!".format(prize_list_adjust[position]))
+        print("Giải thưởng lúc này của bạn:", prize_list_adjust[position])
     else:
-        position += 1
-        continue_or_stop = input("Bạn có muốn chơi tiếp không: (Yes/No) ")
-        if continue_or_stop.lower() == "yes".lower():
-            question_appeared.append(position)
-            continue
-        else:
-            print("Bạn đã kết thúc trò chơi với giải thưởng là {} đồng!".format(prize_list_adjust[position - 1]))   
-            break  
-        if position == 0:
-            print("Thật đáng tiếc, vì trả lời sai câu hỏi đầu tiên nên bạn không nhận được giải thưởng.")
-            break
-        else:
-            print("Thật đáng tiếc, vì bạn đã trả lời sai câu hỏi nên số tiền thưởng của bạn quay về {}".format(prize_list_adjust[0]))
-            break
+        print("Wrong.")
+        break
+    continue_or_stop = input("Bạn có muốn chơi tiếp không: (Yes/No) ")
+    if continue_or_stop.lower() == "yes".lower():
+        question_appeared.append(question_position)
+    elif continue_or_stop.lower() == "no".lower():
+        print("Bạn đã kết thúc trò chơi với giải thưởng là {} đồng!".format(prize_list_adjust[position]))
+        break
+    else:
+        print("Bạn đã kết thúc trò chơi với giải thưởng là {} đồng!".format(prize_list_adjust[position]))
+        break
+if position == 14:
+        print("Chúc mừng bạn đã hoàn thành trò chơi với giải thưởng là {} đồng!".format(prize_list_adjust[position]))
+if position == 1:
+    print("Thật đáng tiếc, vì trả lời sai câu hỏi đầu tiên nên bạn không nhận được giải thưởng.")
+if position > 1 and user_answer.lower() != (answers_list_adjust[question_position]).lower():
+    print("Thật đáng tiếc, vì bạn đã trả lời sai câu hỏi nên số tiền thưởng của bạn quay về {} đồng".format(prize_list_adjust[0]))
 
     
 
