@@ -71,7 +71,7 @@ for i in range(15):
             print("Thật đáng tiếc, vì trả lời sai câu hỏi đầu tiên nên bạn không nhận được giải thưởng.")
             break
         else:
-            print("Thật đáng tiếc, vì bạn đã trả lời sai câu hỏi đầu tiên nên số tiền thưởng của bạn quay về {}".format(prize_list_adjust[0]))
+            print("Thật đáng tiếc, vì bạn đã trả lời sai câu hỏi nên số tiền thưởng của bạn quay về {}".format(prize_list_adjust[0]))
             break
 
     
